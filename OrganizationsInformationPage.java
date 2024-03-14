@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import commonUtils.WebDriverUtil;
 
 public class OrganizationsInformationPage {
+	public WebDriver driver ;
+	
 	//create object of WebDriverUtil
 	WebDriverUtil wutil = new WebDriverUtil();
 	
@@ -47,7 +49,7 @@ public class OrganizationsInformationPage {
 	}
 	
 	//Create a method 
-	public void organizationsInformation(String Orgnamedata, String groupdata) {
+	public HomePage organizationsInformation(String Orgnamedata, String groupdata) {
 		//Enter Organizations Name
 		OrganizationsnameTf.sendKeys(Orgnamedata);
 		//click on group radio button
@@ -56,6 +58,6 @@ public class OrganizationsInformationPage {
 		wutil.handleDropDown(dropdown, groupdata);
 		//Click on save button
 		savebtn.click();
-		
+		return new HomePage(driver);
 	}
 }

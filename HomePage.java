@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import commonUtils.WebDriverUtil;
 
 public class HomePage extends WebDriverUtil {
+	 public WebDriver driver ;
+	
 	//Identify Organization
 	@FindBy(xpath="(//a[text()='Organizations'])[1]")
 	private WebElement Organization ;
@@ -30,14 +32,16 @@ public class HomePage extends WebDriverUtil {
 	}
 	
 	//Create a Method
-	public void Home() {
+	public OrganizationsPage Home() {
 		//click on organizations
 		Organization.click();
+		return new OrganizationsPage(driver);
 	}	
-	public void Home(WebDriver driver) {	
+	public LoginPage Home(WebDriver driver) {	
 		//Mouse hover on image
 		mouseOver(driver, image);
 		signoutbtn.click();
+		return new LoginPage(driver);
 	}
 
 	public WebElement getOrganization() {

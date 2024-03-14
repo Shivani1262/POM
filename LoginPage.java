@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class LoginPage {
-
+	   public WebDriver driver ;
 		//Identify Username Textfield
 		@FindBy(name="user_name")
 		private WebElement Usernametf ;
@@ -26,10 +26,11 @@ public class LoginPage {
 		}
 		
 		//Create a Method
-		public void Login(String usernamedata, String passworddata) {
+		public HomePage Login(String usernamedata, String passworddata) {
 			Usernametf.sendKeys(usernamedata);
 			Passwordtf.sendKeys(passworddata);
 			Loginbtn.click();
+			return new HomePage(driver);		//Make driver as an Global variable
 		}
 
 		public WebElement getUsernametf() {

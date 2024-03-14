@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class OrganizationsPage {
+	public WebDriver driver ;
+	
 	//Click on Create Organization...(+)
 	@FindBy(xpath="//img[@alt='Create Organization...']")
 	private WebElement createorganization;
@@ -19,8 +21,9 @@ public class OrganizationsPage {
 	}
 	
 	//Create a method 
-	public void Organizations() {
+	public OrganizationsInformationPage Organizations() {
 		//click on create organization ..(+)
 		createorganization.click();
+		return new OrganizationsInformationPage(driver);
 	}
 }
